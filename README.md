@@ -25,10 +25,14 @@ the old conversions using the `facepalm` tool, available at
 [https://github.com/cyverse-de/facepalm](https://github.com/cyverse-de/facepalm).
 The conversions are available in this repository in the `old` directory.
 
-You can verify the current version of the database in the `version` tables. The
-`version` table contains the versions applied by the old `facepalm` tool and
-should contain `2.36.0:20210218.01` as the latest version before running
-`migrate`.
+If the database contains the `schema_migrations` table prior to running the
+`migrate` tool, then it was already modified with that tool at some point in the
+past and it should be safe to perform the `up` migrations with it now. However,
+if it's missing then you should make sure that the database is already at the
+maximum version managed by the `facepalm` tool before running any migrations
+with the `migrate` tool. The `version` table contains the versions applied by
+the old `facepalm` tool and should contain `2.36.0:20210218.01` as the latest
+version before running `migrate`.
 
 ## Database URLs
 
