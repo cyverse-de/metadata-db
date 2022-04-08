@@ -12,8 +12,13 @@ CREATE TABLE IF NOT EXISTS attr_enum_values (
     is_default boolean NOT NULL DEFAULT false,
     display_order integer NOT NULL DEFAULT 0,
 
-    CONSTRAINT attr_enum_values_attribute_id_fkey FOREIGN KEY (attribute_id) REFERENCES attributes(id) ON DELETE CASCADE,
-    CONSTRAINT attr_enum_values_unique UNIQUE(attribute_id, value),
+    CONSTRAINT attr_enum_values_attribute_id_fkey 
+        FOREIGN KEY (attribute_id) 
+        REFERENCES attributes(id) ON DELETE CASCADE,
+
+    CONSTRAINT attr_enum_values_unique 
+        UNIQUE(attribute_id, value),
+        
     PRIMARY KEY (id)
 );
 

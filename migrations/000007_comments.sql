@@ -21,6 +21,4 @@ CREATE TABLE IF NOT EXISTS comments (
 
 CREATE INDEX IF NOT EXISTS comments_target_id_idx ON comments(target_id);
 
-
-
 COMMIT;

@@ -14,7 +14,9 @@ CREATE TABLE IF NOT EXISTS tags (
   created_on timestamp DEFAULT now() NOT NULL,
   modified_on timestamp DEFAULT now() NOT NULL,
 
-  CONSTRAINT tags_unique_value_user UNIQUE (value, owner_id),
+  CONSTRAINT tags_unique_value_user 
+    UNIQUE (value, owner_id),
+    
   PRIMARY KEY (id)
   
 );

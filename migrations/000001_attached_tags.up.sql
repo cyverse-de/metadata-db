@@ -15,7 +15,9 @@ CREATE TABLE IF NOT EXISTS attached_tags (
   detacher_id VARCHAR (512) DEFAULT NULL,
   detached_on TIMESTAMP DEFAULT NULL,
 
-  CONSTRAINT attached_tags_tag_id_fkey FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE;
+  CONSTRAINT attached_tags_tag_id_fkey 
+    FOREIGN KEY (tag_id) 
+    REFERENCES tags(id) ON DELETE CASCADE
 );
 
 CREATE INDEX IF NOT EXISTS attached_tags_target_id_idx ON attached_tags(target_id);

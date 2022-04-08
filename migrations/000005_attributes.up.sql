@@ -17,7 +17,9 @@ CREATE TABLE IF NOT EXISTS attributes (
     created_on timestamp DEFAULT now() NOT NULL,
     modified_on timestamp DEFAULT now() NOT NULL,
 
-    CONSTRAINT attributes_value_type_id_fkey FOREIGN KEY (value_type_id) REFERENCES value_types(id)
+    CONSTRAINT attributes_value_type_id_fkey 
+        FOREIGN KEY (value_type_id) 
+        REFERENCES value_types(id)
 );
 
 COMMIT;

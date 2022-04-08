@@ -8,12 +8,16 @@ RETURNS anyelement LANGUAGE sql IMMUTABLE STRICT AS $$
         SELECT $2
 $$;
 
--- And then wrap an aggregate around it
-CREATE AGGREGATE public.last (
-        sfunc    = public.last_agg,
-        basetype = anyelement,
-        stype    = anyelement
-);
+DO $$ BEGIN
+        -- And then wrap an aggregate around it
+        CREATE AGGREGATE public.last (
+                sfunc    = public.last_agg,
+                basetype = anyelement,
+                stype    = anyelement
+        );
+EXCEPTION
+        WHEN duplicate_function THEN NULL;
+END $$;
 
 
 COMMIT;

@@ -14,7 +14,10 @@ CREATE TABLE IF NOT EXISTS permanent_id_requests (
     original_path TEXT,
     permanent_id TEXT,
 
-    CONSTRAINT permanent_id_requests_type_fkey FOREIGN KEY (type) REFERENCES permanent_id_request_types(id),
+    CONSTRAINT permanent_id_requests_type_fkey 
+        FOREIGN KEY (type) 
+        REFERENCES permanent_id_request_types(id),
+        
     PRIMARY KEY (id)
 );
 
