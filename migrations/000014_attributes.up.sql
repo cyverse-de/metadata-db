@@ -19,7 +19,9 @@ CREATE TABLE IF NOT EXISTS attributes (
 
     CONSTRAINT attributes_value_type_id_fkey 
         FOREIGN KEY (value_type_id) 
-        REFERENCES value_types(id)
+        REFERENCES value_types(id),
+
+    PRIMARY KEY (id)
 );
 
 COMMIT;

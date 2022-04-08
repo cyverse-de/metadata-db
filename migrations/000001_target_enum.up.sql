@@ -8,7 +8,7 @@ DO $$ BEGIN
     CREATE TYPE target_enum AS ENUM ('analysis', 'app', 'avu', 'file', 'folder', 'user', 'quick_launch', 'instant_launch');
 EXCEPTION
     WHEN duplicate_object THEN null;
-END $$
+END $$;
 
 
 COMMIT;

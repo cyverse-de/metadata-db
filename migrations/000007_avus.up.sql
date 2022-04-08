@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS avus (
   modified_on timestamp DEFAULT now() NOT NULL,
 
   CONSTRAINT avus_unique 
-    UNIQUE (target_id, target_type, attribute, value_unit),
+    UNIQUE (target_id, target_type, attribute, value, unit),
     
   PRIMARY KEY (id)
 );
