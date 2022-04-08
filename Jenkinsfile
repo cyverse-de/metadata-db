@@ -1,7 +1,7 @@
 #!groovy
-stage "Trigger Downstream Build"
-try {
-  build job: "../facepalm/${env.BRANCH_NAME}", wait: false
-} catch (e) {
-  // Ignoring
+
+stage('Trigger Build') {
+        build job: 'Build-Tag-Push-Deploy-DB-QA', wait: true, parameters: [
+            [$class: 'StringParameterValue', name: 'DB_PROJECT', value: 'metadata-db']
+        ]
 }
