@@ -14,7 +14,7 @@ spec:
         image: harbor.cyverse.org/de/metadata-db
         imagePullPolicy: Always
         env:
-          - name: DE_DATABASE_URI
+          - name: METADATA_DATABASE_URI
             valueFrom:
               secretKeyRef:
                 name: configs
