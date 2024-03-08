@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: metadata-db
 spec:
-  ttlSecondsAfterFinished: 259200 
+  ttlSecondsAfterFinished: 259200
   template:
     metadata:
       name: metadata-db
@@ -13,7 +13,16 @@ spec:
       - name: update-de-db
         image: harbor.cyverse.org/de/metadata-db
         imagePullPolicy: Always
-        env:
+        resources:
+          requests:
+            cpu: "256m"
+            memory: "128Mi"
+            ephemeral-storage: "1Gi"
+          limits:
+            cpu: "512m"
+            memory: "256Mi"
+            ephemeral-storage: "1Gi"
+          env:
           - name: METADATA_DATABASE_URI
             valueFrom:
               secretKeyRef:
